@@ -7,6 +7,8 @@ import './css/styles.css';
 
 import { fetchCountries } from './js/fetchCountries';
 
+import { createPrewiewMarkup, createCountryInfoMurkup } from './js/markup';
+
 const DEBOUNCE_DELAY = 300;
 
 const searchBox = document.querySelector('#search-box');
@@ -29,6 +31,16 @@ const searchCountry = e => {
   e.preventDefault();
 };
 
+function renderPrewiewMarkup(data) {
+  const markup = data.map(createPrewiewMarkup).join('');
+  countryList.innerHTML = markup;
+}
+
+function renderCountryInfoMarkup(data) {
+  const markup = data.map(createCountryInfoMurkup).join('');
+  countryInfo.innerHTML = markup;
+}
+
 function countriesData(data) {
   if (data.length > 10) {
     clearData(countryList);
@@ -41,44 +53,12 @@ function countriesData(data) {
     clearData(countryList);
     clearData(countryInfo);
 
-    return (countryList.innerHTML = data
-      .map(
-        item => `
-                
-                    <li class = 'country'>
-                        <img src = '${item.flags.svg}' />
-                        <p>${item.name}</p>
-                    </li>
-                
-                `
-      )
-      .join(''));
+    return renderPrewiewMarkup(data);
   } else {
     clearData(countryList);
     clearData(countryInfo);
 
-    return (countryInfo.innerHTML = data
-      .map(
-        item => `
-                
-                    <div class = 'country'>
-                    
-                        <img src = '${item.flags.svg}' />
-    
-                        <div class = 'country-body'>
-                        
-                            <h3>${item.name}</h3>
-                            <p><b>Region: </b> ${item.region}</p>
-                            <p><b>Capital: </b> ${item.capital}</p>
-                            <p><b>Population: </b> ${item.population.toLocaleString()}</p>
-                            <p><b>Languages: </b> ${item.languages[0].name}</p>
-                        </div>
-    
-                    </div>
-                
-                `
-      )
-      .join(''));
+    return renderCountryInfoMarkup(data);
   }
 }
 
