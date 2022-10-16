@@ -7,7 +7,7 @@ import './css/styles.css';
 
 import { fetchCountries } from './js/fetchCountries';
 
-import { fetchCountries } from './js/markup';
+import { createPrewiewMarkup, createCountryInfoMurkup } from './js/markup';
 
 const DEBOUNCE_DELAY = 300;
 
