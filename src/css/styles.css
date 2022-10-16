@@ -58,7 +58,7 @@ ul {
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(5px);
-  color: whitesmoke;
+  color: rgb(204, 119, 119);
 }
 
 .country-body {
@@ -82,5 +82,5 @@ header {
 header h1 {
   font-size: 30px;
   font-weight: 600;
-  color: #fdfdfe;
+  color: #5e5e6b;
 }
