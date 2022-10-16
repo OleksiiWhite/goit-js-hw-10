@@ -8,6 +8,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgba(120, 120, 120, 1);
+  background-image: linear-gradient(
+    90deg,
+    rgba(120, 120, 120, 1) 0%,
+    rgba(0, 0, 0, 1) 30%,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(120, 120, 120, 1) 100%
+  );
   line-height: 1.5;
   display: flex;
   flex-direction: column;
@@ -21,6 +28,12 @@ body {
   width: 200px;
   border-radius: 10px;
   border: 1px solid #eee;
+  transition: transform, 1.2s;
+}
+
+#search-box:hover,
+#search-box:focus {
+  width: 350px;
 }
 
 ul {
@@ -37,7 +50,6 @@ li {
 
 li > img {
   height: 50px;
-  width: 100px;
 }
 
 div > img {
@@ -79,4 +91,6 @@ header h1 {
   font-size: 30px;
   font-weight: 600;
   color: #fdfdfe;
+  text-shadow: 0px 0px 5px #c0c0c0, 0px 0px 10px #c0c0c0, 0px 0px 10px #c0c0c0,
+    0px 0px 20px #c0c0c0;
 }
